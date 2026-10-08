@@ -1,0 +1,21 @@
+services:
+  invoices_db:
+    image: postgres:16
+    container_name: invoices_db
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: othmen123
+      POSTGRES_DB: invoices
+    ports:
+      - "5433:5432"
+    volumes:
+      - invoices_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: invoices_adminer
+    ports:
+      - "8081:8080"
+
+volumes:
+  invoices_data:
